@@ -210,8 +210,10 @@ if __name__ == "__main__":
                 current_step = tf.train.global_step(sess, global_step)
                 print('in loop')
                 if current_step % FLAGS.valid_every == 0:
+                    print('inif')
                     meanLoss, metrics = dev_step('dev', dev_summary_writer)
                     if metrics > optimal_metrics:
+                        print('inif')
                         optimal_metrics = metrics
                         optimal_step = current_step
                         print("opt_step: %d \t| opt_metric: %.3f" %(optimal_step, optimal_metrics))
