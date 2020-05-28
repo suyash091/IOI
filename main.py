@@ -171,7 +171,7 @@ if __name__ == "__main__":
                 writer.add_summary(summary_MeanLoss, step)
                 writer.add_summary(summary_MeanAcc, step)
 
-                if ('ubuntu' in FLAGS.data_path): 
+                if ('ubuntu1' in FLAGS.data_path): 
                     num_sample = int(len(pred_scores) / 10)
                     score_list = np.split(np.array(pred_scores), num_sample, axis=0)
                     recall_2_1 = recall_2at1(score_list, k=1)
