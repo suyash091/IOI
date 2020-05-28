@@ -1,7 +1,7 @@
 import tensorflow as tf
 def get_args():
 
-    tf.flags.DEFINE_string('data_path', '../ubuntu', 'Path to dataset. ')
+    tf.flags.DEFINE_string('data_path', '/content/data/ubuntu1/', 'Path to dataset. ')
     
     tf.flags.DEFINE_boolean("auto_gpu", True, "Automatically select gpu")
     tf.flags.DEFINE_integer("num_threads", 4, "Dimensionality of embedding")
