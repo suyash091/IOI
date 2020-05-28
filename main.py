@@ -53,8 +53,8 @@ if __name__ == "__main__":
 
 
         with sess.as_default():
-            train_record_file = '/content/data/ubuntu1/train.tfrecords'
-            valid_record_file = '/content/data/ubuntu1/test.tfrecords'
+            train_record_file = './%s/train.tfrecords'%(FLAGS.data_path)
+            valid_record_file = './%s/valid.tfrecords'%(FLAGS.data_path)
 
 
             parser = get_record_parser(FLAGS)
