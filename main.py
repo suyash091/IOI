@@ -33,7 +33,7 @@ if __name__ == "__main__":
     if not os.path.exists(checkpoint_dir):
         os.makedirs(checkpoint_dir)
 
-    with tf.device("/%s" % FLAGS.gpu):
+    with tf.device("%s" % FLAGS.gpu):
         session_conf = tf.ConfigProto(
             allow_soft_placement=FLAGS.allow_soft_placement,
             log_device_placement=FLAGS.log_device_placement)
