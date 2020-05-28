@@ -152,13 +152,13 @@ if __name__ == "__main__":
                         losses.append(loss)
                         pred_scores += list(y_pred[:, 1])
                         ture_scores += list(target)
-
+                        print('dev')
                         count +=1
                         if count % 1000 == 0:
                             print(count)
                     except tf.errors.OutOfRangeError:
                         break
-
+                print('1')
                 MeanAcc = sum(acc) / len(acc)
                 MeanLoss = sum(losses) / len(losses)
                 
@@ -170,12 +170,12 @@ if __name__ == "__main__":
                 summary_MeanAcc = tf.Summary(value=[tf.Summary.Value(tag='%s/MeanAcc'%(flag), simple_value=MeanAcc)])
                 writer.add_summary(summary_MeanLoss, step)
                 writer.add_summary(summary_MeanAcc, step)
-
+                print('ubuntu1' in FLAGS.data_path)
                 if ('ubuntu1' in FLAGS.data_path): 
                     num_sample = int(len(pred_scores) / 10)
                     score_list = np.split(np.array(pred_scores), num_sample, axis=0)
                     recall_2_1 = recall_2at1(score_list, k=1)
-
+                    print('bug')
                     recall_at_1 = recall_at_k(np.array(ture_scores),  np.array(pred_scores), 1) 
                     recall_at_2 = recall_at_k(np.array(ture_scores),  np.array(pred_scores), 2)
                     recall_at_5 = recall_at_k(np.array(ture_scores),  np.array(pred_scores), 5)
